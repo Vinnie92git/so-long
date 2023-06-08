@@ -6,7 +6,7 @@
 #    By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/06 11:38:02 by vipalaci          #+#    #+#              #
-#    Updated: 2023/06/06 15:20:06 by vipalaci         ###   ########.fr        #
+#    Updated: 2023/06/08 13:33:05 by vipalaci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ NAME = so_long
 INCLUDE = include/
 
 # OBJECTS #
-SRC = main.c
+SRC = main.c error.c
 
 SRC_PATH = src/
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
