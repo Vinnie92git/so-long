@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinni <vinni@student.42.fr>                +#+  +:+       +#+        */
+/*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:45:59 by vinni             #+#    #+#             */
-/*   Updated: 2023/04/11 16:47:10 by vinni            ###   ########.fr       */
+/*   Updated: 2023/06/12 12:55:29 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 1000
 # endif
 
 # include <stdlib.h>
