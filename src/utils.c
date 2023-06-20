@@ -6,11 +6,30 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:09:48 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/14 11:04:32 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:47:32 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
+
+int	ft_error(char *message)
+{
+	write(2, message, ft_strlen(message));
+	return (0);
+}
+
+void	ft_free(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		free (s[i]);
+		i++;
+	}
+	free (s);
+}
 
 char	*ft_strdup_no_nl(char *str)
 {
@@ -51,7 +70,7 @@ char	*ft_strjoin_no_nl(char *s1, char *s2)
 	while (s2[j])
 	{
 		if (s2[j] == '\n')
-			break ;		
+			break ;
 		str[i] = s2[j];
 		i++;
 		j++;
