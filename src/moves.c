@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:00:12 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/20 17:10:02 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:02:21 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ void	move_up(t_game *game, int h, int w)
 			open_exit(game);
 		game->p.steps += 1;
 		ft_printf("Total moves: %d\n", game->p.steps);
+		if (game->map.lay[h][w] == 'P')
+			game->map.lay[h - 1][w] = 'P';
+		else
+			(game->map.lay[h - 1][w] = 'L');
 		game->map.lay[h][w] = '0';
-		game->map.lay[h - 1][w] = 'P';
 		build_map(game);
 	}
 }
@@ -50,8 +53,11 @@ void	move_down(t_game *game, int h, int w)
 			open_exit(game);
 		game->p.steps += 1;
 		ft_printf("Total moves: %d\n", game->p.steps);
+		if (game->map.lay[h][w] == 'P')
+			game->map.lay[h + 1][w] = 'P';
+		else
+			(game->map.lay[h + 1][w] = 'L');
 		game->map.lay[h][w] = '0';
-		game->map.lay[h + 1][w] = 'P';
 		build_map(game);
 	}
 }
@@ -73,7 +79,7 @@ void	move_left(t_game *game, int h, int w)
 		game->p.steps += 1;
 		ft_printf("Total moves: %d\n", game->p.steps);
 		game->map.lay[h][w] = '0';
-		game->map.lay[h][w - 1] = 'P';
+		game->map.lay[h][w - 1] = 'L';
 		build_map(game);
 	}
 }

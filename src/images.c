@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:19:12 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/20 16:30:22 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:16:20 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,30 +95,4 @@ void	build_map(t_game *game)
 		}
 		h++;
 	}
-}
-
-int	create_layout(t_game *game)
-{
-	int	h;
-	int	w;
-	int	i;
-
-	i = 0;
-	h = 0;
-	game->map.lay = malloc(sizeof(char *) * (game->map.height + 1));
-	if (!game->map.lay)
-		return (0);
-	while (h < game->map.height)
-	{
-		w = 0;
-		game->map.lay[h] = malloc(sizeof(char) * ft_strlen(game->map.line));
-		if (!game->map.lay[h])
-			return (0);
-		while (w < game->map.width)
-			game->map.lay[h][w++] = game->map.line[i++];
-		game->map.lay[h][w] = '\0';
-		h++;
-	}
-	game->map.lay[h] = 0;
-	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 13:47:09 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/20 15:50:14 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:17:51 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,37 +24,9 @@ int	init_window(t_game *game)
 	if (!game->mlx)
 		return (0);
 	game->window = mlx_new_window(game->mlx, game->map.width * 32,
-			game->map.height * 32, "so_long");
+			game->map.height * 32, "ESCAPE THE DUNGEON!");
 	if (!game->window)
 		return (0);
-	return (1);
-}
-
-int	read_map(char *filename, t_game *game)
-{
-	int		fd;
-	char	*line;
-
-	fd = open(filename, O_RDONLY);
-	if (fd <= 0)
-		return (ft_error("Error: error reading from file\n"));
-	line = get_next_line(fd);
-	if (!line)
-		return (ft_error("Error: empty map!\n"));
-	game->map.height = 0;
-	game->map.width = ft_strlen(line) - 1;
-	game->map.line = ft_strdup_no_nl(line);
-	free(line);
-	while (line)
-	{
-		game->map.height++;
-		line = get_next_line(fd);
-		if (line)
-			game->map.line = ft_strjoin_no_nl(game->map.line, line);
-	}
-	close(fd);
-	if ((game->map.height * game->map.width) != (int)ft_strlen(game->map.line))
-		return (ft_error("Error: map is not rectangular\n"));
 	return (1);
 }
 
@@ -62,9 +34,23 @@ int	start_game(char **argv, t_game *game)
 {
 	if (!read_map(argv[1], game) || !check_elements(game)
 		|| !create_layout(game) || !check_walls(game) || !init_window(game))
+	{
+		free(game->map.line);
 		return (0);
+	}
+	game->chest_count = 0;
+	game->p.steps = 0;
 	set_images(game);
 	build_map(game);
+	return (1);
+}
+
+int	check_input(int argc, char **argv)
+{
+	if (argc != 2)
+		return (ft_error("Error: incorrect number of arguments\n"));
+	if (!ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])))
+		return (ft_error("Error: incorrect file extension\n"));
 	return (1);
 }
 

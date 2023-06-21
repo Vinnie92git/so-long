@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 12:36:42 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/19 16:08:37 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:31:35 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int	key_event(int key_code, t_game *game)
 {
 	if (key_code == KEY_ESC)
+	{
+		mlx_destroy_window(game->mlx, game->window);
 		exit(0);
+	}
 	if (key_code == KEY_W || key_code == ARROW_UP)
 		key_up(game);
 	if (key_code == KEY_A || key_code == ARROW_LEFT)
@@ -38,11 +41,11 @@ void	key_up(t_game *game)
 		w = 0;
 		while (w < game->map.width)
 		{
-			if (game->map.lay[h][w] == 'P')
+			if (game->map.lay[h][w] == 'P' || game->map.lay[h][w] == 'L')
 				break ;
 			w++;
 		}
-		if (game->map.lay[h][w] == 'P')
+		if (game->map.lay[h][w] == 'P' || game->map.lay[h][w] == 'L')
 			break ;
 		h++;
 	}
@@ -60,11 +63,11 @@ void	key_down(t_game *game)
 		w = 0;
 		while (w < game->map.width)
 		{
-			if (game->map.lay[h][w] == 'P')
+			if (game->map.lay[h][w] == 'P' || game->map.lay[h][w] == 'L')
 				break ;
 			w++;
 		}
-		if (game->map.lay[h][w] == 'P')
+		if (game->map.lay[h][w] == 'P' || game->map.lay[h][w] == 'L')
 			break ;
 		h++;
 	}
@@ -82,11 +85,11 @@ void	key_left(t_game *game)
 		w = 0;
 		while (w < game->map.width)
 		{
-			if (game->map.lay[h][w] == 'P')
+			if (game->map.lay[h][w] == 'P' || game->map.lay[h][w] == 'L')
 				break ;
 			w++;
 		}
-		if (game->map.lay[h][w] == 'P')
+		if (game->map.lay[h][w] == 'P' || game->map.lay[h][w] == 'L')
 			break ;
 		h++;
 	}
@@ -104,11 +107,11 @@ void	key_right(t_game *game)
 		w = 0;
 		while (w < game->map.width)
 		{
-			if (game->map.lay[h][w] == 'P')
+			if (game->map.lay[h][w] == 'P' || game->map.lay[h][w] == 'L')
 				break ;
 			w++;
 		}
-		if (game->map.lay[h][w] == 'P')
+		if (game->map.lay[h][w] == 'P' || game->map.lay[h][w] == 'L')
 			break ;
 		h++;
 	}

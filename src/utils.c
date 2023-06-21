@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:09:48 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/20 16:47:32 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:05:26 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ char	*ft_strjoin_no_nl(char *s1, char *s2)
 		j++;
 	}
 	str[i] = '\0';
+	free(s1);
 	return (str);
 }

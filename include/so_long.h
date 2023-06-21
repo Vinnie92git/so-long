@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:26:20 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/20 16:49:06 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:22:36 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,9 @@ int		read_map(char *filename, t_game *game);
 int		key_event(int key_code, t_game *game);
 int		check_input(int argc, char **argv);
 int		check_elements(t_game *game);
+int		check_unrecognized(char element);
 int		check_walls(t_game *game);
-int		check_path(t_game *game);
+/* int		check_path(t_game *game); */
 int		create_layout(t_game *game);
 int		init_window(t_game *game);
 
