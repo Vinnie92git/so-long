@@ -6,32 +6,33 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:03:23 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/21 14:17:59 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/26 16:02:26 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-/* int	check_path(t_game *game)
+int	check_path(t_game *game)
 {
 	int	h;
 	int	w;
 
 	h = 0;
+	copy_layout(game);
+	find_start(game);
 	while (h < game->map.height)
 	{
 		w = 0;
 		while (w < game->map.width)
 		{
-			if (game->map.lay[h][w] == 'P')
-				break ;
+			if (game->map.cpy[h][w] == 'C')
+				return (ft_error("Error: there is no valid path\n"));
 			w++;
 		}
-		if (game->map.lay[h][w] == 'P')
-			break ;
 		h++;
 	}
-} */
+	return (1);
+}
 
 int	check_walls(t_game *game)
 {
@@ -59,8 +60,8 @@ int	check_walls(t_game *game)
 
 int	check_unrecognized(char element)
 {
-	if (element != 'E' && element != 'C' && element != 'P' &&
-		element != '0' && element != '1')
+	if (element != 'E' && element != 'C' && element != 'P'
+		&& element != '0' && element != '1')
 		return (0);
 	return (1);
 }
@@ -91,5 +92,14 @@ int	check_elements(t_game *game)
 	if (e != 1 || c < 1 || p != 1)
 		return (ft_error("Error: incorrect number of elements\n"));
 	game->chest_total = c;
+	return (1);
+}
+
+int	check_input(int argc, char **argv)
+{
+	if (argc != 2)
+		return (ft_error("Error: incorrect number of arguments\n"));
+	if (!ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])))
+		return (ft_error("Error: incorrect file extension\n"));
 	return (1);
 }

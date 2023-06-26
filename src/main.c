@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 13:47:09 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/21 14:17:51 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/26 16:09:26 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ int	init_window(t_game *game)
 int	start_game(char **argv, t_game *game)
 {
 	if (!read_map(argv[1], game) || !check_elements(game)
-		|| !create_layout(game) || !check_walls(game) || !init_window(game))
+		|| !create_layout(game) || !check_path(game)
+		|| !check_walls(game) || !init_window(game))
 	{
+		ft_free(game->map.lay);
+		ft_free(game->map.cpy);
 		free(game->map.line);
 		return (0);
 	}
@@ -42,15 +45,6 @@ int	start_game(char **argv, t_game *game)
 	game->p.steps = 0;
 	set_images(game);
 	build_map(game);
-	return (1);
-}
-
-int	check_input(int argc, char **argv)
-{
-	if (argc != 2)
-		return (ft_error("Error: incorrect number of arguments\n"));
-	if (!ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])))
-		return (ft_error("Error: incorrect file extension\n"));
 	return (1);
 }
 

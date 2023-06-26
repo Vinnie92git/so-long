@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:09:48 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/21 13:05:26 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/26 15:57:23 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	ft_free(char **s)
 	i = 0;
 	while (s[i])
 	{
-		free (s[i]);
+		free(s[i]);
 		i++;
 	}
-	free (s);
+	free(s);
 }
 
 char	*ft_strdup_no_nl(char *str)

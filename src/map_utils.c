@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:15:41 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/21 14:16:15 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/26 11:30:56 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	create_layout(t_game *game)
 	while (h < game->map.height)
 	{
 		w = 0;
-		game->map.lay[h] = malloc(sizeof(char) * ft_strlen(game->map.line));
+		game->map.lay[h] = malloc(sizeof(char) * game->map.width);
 		if (!game->map.lay[h])
 			return (0);
 		while (w < game->map.width)
