@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:03:23 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/26 16:02:26 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/27 12:43:49 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,13 @@ int	check_path(t_game *game)
 		w = 0;
 		while (w < game->map.width)
 		{
-			if (game->map.cpy[h][w] == 'C')
+			if (game->map.cpy[h][w] == 'C' ||
+				game->map.cpy[h][w] == 'P' ||
+				(game->map.cpy[h][w] == 'E'
+				&& game->map.cpy[h - 1][w] != 'F'
+				&& game->map.cpy[h + 1][w] != 'F'
+				&& game->map.cpy[h][w + 1] != 'F'
+				&& game->map.cpy[h][w - 1] != 'F'))
 				return (ft_error("Error: there is no valid path\n"));
 			w++;
 		}

@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:00:12 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/21 13:02:21 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:04:29 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	move_up(t_game *game, int h, int w)
 	if (game->map.lay[h - 1][w] != '1' && game->map.lay[h - 1][w] == 'D' &&
 		game->chest_count == game->chest_total)
 	{
+		game->p.steps += 1;
+		ft_printf("Total moves: %d\n", game->p.steps);
 		ft_printf("You escaped the dungeon!\n");
 		exit(0);
 	}
@@ -42,6 +44,8 @@ void	move_down(t_game *game, int h, int w)
 	if (game->map.lay[h + 1][w] != '1' && game->map.lay[h + 1][w] == 'D' &&
 		game->chest_count == game->chest_total)
 	{
+		game->p.steps += 1;
+		ft_printf("Total moves: %d\n", game->p.steps);
 		ft_printf("You escaped the dungeon!\n");
 		exit(0);
 	}
@@ -67,6 +71,8 @@ void	move_left(t_game *game, int h, int w)
 	if (game->map.lay[h][w - 1] != '1' && game->map.lay[h][w - 1] == 'D' &&
 		game->chest_count == game->chest_total)
 	{
+		game->p.steps += 1;
+		ft_printf("Total moves: %d\n", game->p.steps);
 		ft_printf("You escaped the dungeon!\n");
 		exit(0);
 	}
@@ -89,6 +95,8 @@ void	move_right(t_game *game, int h, int w)
 	if (game->map.lay[h][w + 1] != '1' && game->map.lay[h][w + 1] == 'D' &&
 		game->chest_count == game->chest_total)
 	{
+		game->p.steps += 1;
+		ft_printf("Total moves: %d\n", game->p.steps);
 		ft_printf("You escaped the dungeon!\n");
 		exit(0);
 	}

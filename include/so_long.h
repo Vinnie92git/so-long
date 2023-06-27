@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:26:20 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/26 15:47:55 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:09:03 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int		check_input(int argc, char **argv);
 int		check_elements(t_game *game);
 int		check_unrecognized(char element);
 int		check_walls(t_game *game);
+int		check_path(t_game *game);
 int		create_layout(t_game *game);
 int		init_window(t_game *game);
 
@@ -93,8 +94,6 @@ void	move_up(t_game *game, int h, int w);
 void	move_down(t_game *game, int h, int w);
 void	move_left(t_game *game, int h, int w);
 void	move_right(t_game *game, int h, int w);
-
-int		check_path(t_game *game);
 void	copy_layout(t_game *game);
 void	find_start(t_game *game);
 void	ft_floodfill(t_game *game, int h, int w);
