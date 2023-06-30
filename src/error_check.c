@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:03:23 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/27 12:43:49 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/06/30 12:38:09 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	check_walls(t_game *game)
 		if (game->map.lay[0][w++] != '1')
 			return (ft_error("Error: map is not surrounded by walls\n"));
 	h = 1;
-	while (game->map.lay[h] < game->map.lay[game->map.height - 1])
+	while (h < game->map.height - 1)
 	{
 		if (game->map.lay[h][0] != '1' ||
 			game->map.lay[h][game->map.width - 1] != '1')
