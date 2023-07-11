@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 13:47:09 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/27 13:07:02 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:30:48 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	init_window(t_game *game)
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		return (0);
+	set_images(game);
 	game->window = mlx_new_window(game->mlx, game->map.width * 32,
 			game->map.height * 32, "ESCAPE THE DUNGEON!");
 	if (!game->window)
@@ -55,7 +56,6 @@ int	start_game(char **argv, t_game *game)
 	}
 	game->chest_count = 0;
 	game->p.steps = 0;
-	set_images(game);
 	build_map(game);
 	return (1);
 }

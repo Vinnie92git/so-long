@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:26:20 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/27 14:09:03 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/07/10 17:47:16 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ typedef struct s_map
 	void	*f;
 	void	*w;
 	void	*c;
-	void	*o;
 	void	*d;
 	void	*e;
 }	t_map;

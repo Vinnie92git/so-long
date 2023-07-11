@@ -6,7 +6,7 @@
 /*   By: vipalaci <vipalaci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:19:12 by vipalaci          #+#    #+#             */
-/*   Updated: 2023/06/21 14:16:20 by vipalaci         ###   ########.fr       */
+/*   Updated: 2023/07/10 18:05:10 by vipalaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ void	set_images(t_game *game)
 			"./imgs/wall.xpm", &width, &height);
 	game->map.c = mlx_xpm_file_to_image(game->mlx,
 			"./imgs/chest.xpm", &width, &height);
-	game->map.o = mlx_xpm_file_to_image(game->mlx,
-			"./imgs/chest_open.xpm", &width, &height);
 	game->map.e = mlx_xpm_file_to_image(game->mlx,
 			"./imgs/exit_closed.xpm", &width, &height);
 	game->map.d = mlx_xpm_file_to_image(game->mlx,
@@ -77,6 +75,12 @@ void	set_images(t_game *game)
 			"./imgs/player.xpm", &width, &height);
 	game->p.l = mlx_xpm_file_to_image(game->mlx,
 			"./imgs/player_left.xpm", &width, &height);
+	if (!game->map.f || !game->map.w || !game->map.c
+		|| !game->map.e || !game->map.d || !game->p.r || !game->p.l)
+	{
+		ft_error("Error: unable to find image/s\n");
+		exit (1);
+	}
 }
 
 void	build_map(t_game *game)
